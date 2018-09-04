@@ -10,3 +10,16 @@ in particular
 
 * unset spell
 * add simple syntax highlighting
+
+I've added some simple shoulder surfing protection via syntax highlighting.
+When loading a pass file for editing, the first line will be obscured. It is
+editable when the cursor is in place, but will be obscured while editing other
+fields.
+
+There are two commands to facilitate hiding and concealing
+
+*:Reveal*
+*:Conceal*
+
+These do what you might expect, reset the syntax highlighting of the password
+from obscured to cleared.
