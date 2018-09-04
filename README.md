@@ -19,6 +19,7 @@ fields.
 There are two commands to facilitate hiding and concealing
 
 *:Reveal*
+
 *:Conceal*
 
 These do what you might expect, reset the syntax highlighting of the password
