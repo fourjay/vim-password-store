@@ -7,14 +7,12 @@ let s:save_cpo = &cpoptions
 set compatible&vim
 
 " this is straight from Tom Ryders plugin
-augroup password-store
-  autocmd!
-  autocmd VimEnter
-        \ /dev/shm/pass.?*/?*.txt
-        \,$TMPDIR/pass.?*/?*.txt
-        \,/tmp/pass.?*/?*.txt
-        \ setlocal filetype=pass
-augroup END
+
+autocmd VimEnter
+            \ /dev/shm/pass.?*/?*.txt
+            \,$TMPDIR/pass.?*/?*.txt
+            \,/tmp/pass.?*/?*.txt
+            \ setlocal filetype=pass
 
 " Cleanup at end
 let &cpoptions = s:save_cpo
