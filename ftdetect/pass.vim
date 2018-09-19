@@ -13,7 +13,7 @@ augroup password-store
         \ /dev/shm/pass.?*/?*.txt
         \,$TMPDIR/pass.?*/?*.txt
         \,/tmp/pass.?*/?*.txt
-        \ set filetype=pass
+        \ setlocal filetype=pass
 augroup END
 
 " Cleanup at end
