@@ -10,6 +10,7 @@ set compatible&vim
 
 autocmd VimEnter
             \ /dev/shm/pass.?*/?*.txt
+            \,/dev/shm/gopass-edit*/secret
             \,$TMPDIR/pass.?*/?*.txt
             \,/tmp/pass.?*/?*.txt
             \ setlocal filetype=pass
