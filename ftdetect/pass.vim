@@ -14,7 +14,7 @@ autocmd VimEnter
             \,$TMPDIR/pass.?*/?*.txt
             \,/tmp/pass.?*/?*.txt
             \ setlocal filetype=pass |
-            \ if password_store#setting('enable_syntax') ==# 'true' | setlocal syntax=pass_delayed | endif
+            \ if password_store#setting('enable_syntax') ==# 'true' | setlocal syntax=pass.obfuscated | endif
 
 " Cleanup at end
 let &cpoptions = s:save_cpo
