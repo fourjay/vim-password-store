@@ -19,3 +19,6 @@ Before (disable syntax):
 
 Execute (test disable syntax ):
   AssertEqual &filetype, 'pass'
+
+Execute (test increment password length):
+  AssertEqual len( password_store#generate()), 12
