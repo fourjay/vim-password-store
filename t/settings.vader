@@ -18,4 +18,4 @@ Before (disable syntax):
   let g:password_store_settings.enable_syntax = 'false'
 
 Execute (test disable syntax ):
-  AssertEqual SyntaxAt(2), ''
+  AssertEqual &filetype, 'pass'
