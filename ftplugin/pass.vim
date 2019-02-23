@@ -5,26 +5,6 @@ let g:did_pass = 'did_pass_ftplugin'
 let s:save_cpo = &cpoptions
 set compatible&vim
 
-
-let s:default_settings = {
-            \    'pw_length' : '12',
-            \    'enable_syntax' : 'true',
-            \ }
-
-if ! exists('g:password_store_settings')
-    let g:password_store_settings = {}
-endif
-
-for s:setting in keys(s:default_settings)
-    if ! has_key( g:password_store_settings, s:setting )
-        let g:password_store_settings[s:setting] = s:default_settings[s:setting]
-    endif
-endfor
-
-if ! exists('g:password_store_pw_length')
-    let g:password_store_pw_length = 12
-endif
-
 nmap <buffer> <Plug>rotate_password :call password_store#replace()<Cr>
 if ! hasmapto( '\<Plug>rotate_password', 'n')
     nmap <C-X> <Plug>rotate_password
@@ -70,5 +50,9 @@ endfunction
 command! Conceal call <SID>conceal_pass()
 normal! GG
 
+augroup password_settings_late_load
+    autocmd!
+    autocmd FileReadPost if &filetype == 'pass'  | echom 'autocmd triggered' | let b:load_pass_syntax = 1 | source 'syntax/pass.vim' | endif
+augroup end
 " Cleanup at end
 let &cpoptions = s:save_cpo

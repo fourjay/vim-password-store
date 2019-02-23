@@ -1,0 +1,21 @@
+Given pass (short password):
+  pass
+
+Execute (test short password syntax):
+  AssertEqual SyntaxAt(2), 'password_store_password_short'
+
+Given pass (longer password):
+  passwordlonger
+
+Execute (test longer password syntax):
+  AssertEqual SyntaxAt(2), 'password_store_password'
+
+Given pass (another password):
+  passwordlonger
+
+Before (disable syntax):
+  let g:password_store_settings = {}
+  let g:password_store_settings.enable_syntax = 'false'
+
+Execute (test disable syntax ):
+  AssertEqual SyntaxAt(2), ''

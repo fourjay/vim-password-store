@@ -13,7 +13,8 @@ autocmd VimEnter
             \,/dev/shm/gopass-edit*/secret
             \,$TMPDIR/pass.?*/?*.txt
             \,/tmp/pass.?*/?*.txt
-            \ setlocal filetype=pass
+            \ setlocal filetype=pass |
+            \ if password_store#setting('enable_syntax') ==# 'true' | setlocal syntax=pass_delayed | endif
 
 " Cleanup at end
 let &cpoptions = s:save_cpo
