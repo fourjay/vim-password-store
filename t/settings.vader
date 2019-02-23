@@ -22,3 +22,6 @@ Execute (test disable syntax ):
 
 Execute (test increment password length):
   AssertEqual len( password_store#generate()), 12
+
+Execute (test new generates do not match):
+  AssertNotEqual password_store#generate(), password_store#generate()
