@@ -25,3 +25,18 @@ Execute (test increment password length):
 
 Execute (test new generates do not match):
   AssertNotEqual password_store#generate(), password_store#generate()
+
+Given text (test ftdetect):
+  passwordtesting
+
+Before (mimic settings):
+  let g:password_store_settings = {}
+  let g:password_store_settings.enable_syntax = 'false'
+  let g:password_store_settings.pw_length = '16'
+
+Execute (test ftdetect trigger):
+  set filetype=pass
+  AssertEqual password_store#setting('enable_syntax'), 'false'
+  AssertEqual len( password_store#generate() ), 16
+
+
