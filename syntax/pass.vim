@@ -1,4 +1,5 @@
 if exists('b:current_syntax') | finish|  endif
+if g:password_store_settings.enable_syntax != 'true' | finish | endif
 
 " set redacted colors from colorscheme
 let s:error_highlight_str = execute( 'highlight Error' )

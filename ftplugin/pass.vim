@@ -6,6 +6,21 @@ let s:save_cpo = &cpoptions
 set compatible&vim
 
 
+let s:default_settings = {
+            \    'pw_length' : '12',
+            \    'enable_syntax' : 'true',
+            \ }
+
+if ! exists('g:password_store_settings')
+    let g:password_store_settings = {}
+endif
+
+for s:setting in keys(s:default_settings)
+    if ! has_key( g:password_store_settings, s:setting )
+        let g:password_store_settings[s:setting] = s:default_settings[s:setting]
+    endif
+endfor
+
 if ! exists('g:password_store_pw_length')
     let g:password_store_pw_length = 12
 endif

@@ -11,7 +11,7 @@ set compatible&vim
 " Return vim to users choice
 function! password_store#generate() abort
     if executable('pwgen')
-        return systemlist('pwgen -N1 ' . g:password_store_pw_length )[0]
+        return systemlist('pwgen -N1 ' . g:password_store_settings.pw_length )[0]
     endif
 endfunction
 
