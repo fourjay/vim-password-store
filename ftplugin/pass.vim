@@ -1,10 +1,19 @@
-if exists('did_pass_ftplugin') || &compatible  || version < 700
+if exists('did_pass_ftplugin') || &compatible  || v:version < 700
     finish
 endif
 let g:did_pass = 'did_pass_ftplugin'
 let s:save_cpo = &cpoptions
 set compatible&vim
 
+
+if ! exists('g:password_store_pw_length')
+    let g:password_store_pw_length = 12
+endif
+
+nmap <buffer> <Plug>rotate_password :call password_store#replace()<Cr>
+if ! hasmapto( '\<Plug>rotate_password', 'n')
+    nmap <C-X> <Plug>rotate_password
+endif
 
 setlocal nospell
 
@@ -44,7 +53,7 @@ function! s:conceal_pass() abort
     highlight! password_store_password guifg=DarkGray guibg=DarkGray ctermfg=8 ctermbg=8
 endfunction
 command! Conceal call <SID>conceal_pass()
-normal GG
+normal! GG
 
 " Cleanup at end
 let &cpoptions = s:save_cpo
