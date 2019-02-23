@@ -27,7 +27,6 @@ let s:default_settings = {
 
 function! password_store#setting(key)
     if exists('g:password_store_settings') && has_key(g:password_store_settings, a:key)
-        echo 'found key'
         return g:password_store_settings[a:key]
     else
         return s:default_settings[a:key]
