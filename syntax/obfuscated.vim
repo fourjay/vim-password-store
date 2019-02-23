@@ -1,5 +1,7 @@
 if exists('b:current_syntax') | finish|  endif
 
+setlocal cursorline
+
 " set redacted colors from colorscheme
 let s:error_highlight_str = execute( 'highlight Error' )
 let s:error_fg = matchstr(s:error_highlight_str, 'guifg=\zs\S*')
