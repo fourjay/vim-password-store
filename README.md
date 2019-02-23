@@ -24,3 +24,8 @@ There are two commands to facilitate hiding and concealing
 
 These do what you might expect, reset the syntax highlighting of the password
 from obscured to cleared.
+
+There is also integration with ``pwgen`` the same utility called by
+password-store to generate passwords. By default this is mapped to vim's
+increment and decrement operators ``<C-X>`` and ``<C-A>`` but the mapping is
+available by a plug mapping ``<Plug>password_rotate``
