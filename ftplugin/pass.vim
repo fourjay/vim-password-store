@@ -50,9 +50,5 @@ endfunction
 command! Conceal call <SID>conceal_pass()
 normal! GG
 
-augroup password_settings_late_load
-    autocmd!
-    autocmd FileReadPost if &filetype == 'pass'  | echom 'autocmd triggered' | let b:load_pass_syntax = 1 | source 'syntax/pass.vim' | endif
-augroup end
 " Cleanup at end
 let &cpoptions = s:save_cpo
