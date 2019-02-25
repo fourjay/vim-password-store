@@ -1,0 +1,18 @@
+{
+    "t/*.vader" : {
+        "type"      : "test",
+        "alternate" : [ "autoload/{}.vim", "ftplugin/{}.vim" ]
+    },
+    "autoload/*.vim" : {
+        "type"      : "autoload",
+        "alternate" : "t/pass.vader"
+    },
+    "ftplugin/*.vim" : {
+        "type"      : "plugin",
+        "alternate" : "t/{}.vader"
+    },
+    ".scratch/*.vim" : {
+        "type"      : "scratch",
+        "alternate" : "{}"
+    }
+}
