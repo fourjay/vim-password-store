@@ -33,4 +33,10 @@ function! password_store#setting(key)
     endif
 endfunction
 
+function! password_store#get_highight(group, key) abort
+    let l:hl_line = execute( 'highlight ' . a:group)
+    let l:key = matchstr(l:hl_line, a:key . '=\zs\S*')
+    return l:key
+endfunction
+
 let &cpoptions = s:save_cpo

@@ -39,4 +39,6 @@ Execute (test ftdetect trigger):
   AssertEqual password_store#setting('enable_syntax'), 'false'
   AssertEqual len( password_store#generate() ), 16
 
+Execute (test highlight group parsing):
+  Assert password_store#get_highight('Comment', 'guifg') =~# '\v#[0-9a-f]{6}'
 
