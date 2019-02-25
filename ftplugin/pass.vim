@@ -40,12 +40,12 @@ endfunction
 call s:CheckArgsRedact()
 
 function! s:reveal_pass() abort
-    highlight! link password_store_password Comment
+    setlocal syntax=pass
 endfunction
 command! Reveal call <SID>reveal_pass()
 
 function! s:conceal_pass() abort
-    highlight! password_store_password guifg=DarkGray guibg=DarkGray ctermfg=8 ctermbg=8
+    setlocal syntax=pass.obfuscated
 endfunction
 command! Conceal call <SID>conceal_pass()
 normal! GG
