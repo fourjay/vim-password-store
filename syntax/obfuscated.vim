@@ -1,5 +1,12 @@
 if exists('b:current_syntax') | finish|  endif
 
+if execute('highlight CursorLine') =~# 'xxx term=underline cterm=underline guibg=Grey40'
+    echohl WarningMsg
+    echo 'cursorline expected for obfuscation, manually setting'
+    echohl None
+    highlight CursorLine term=underline ctermbg=gray guibg=Grey40
+endif
+
 setlocal cursorline
 
 " set redacted colors from colorscheme
