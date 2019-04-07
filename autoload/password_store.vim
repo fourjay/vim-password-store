@@ -1,14 +1,3 @@
-" setup known state
-if exists('did_password_store') 
-      "  || &compatible 
-      "  || version < 700}
-    finish
-endif
-let g:did_password_store = '1'
-let s:save_cpo = &cpoptions
-set compatible&vim
-"echo 'main code'}}
-" Return vim to users choice
 function! password_store#generate() abort
     if executable('pwgen')
         let l:result =  systemlist('pwgen -N1 ' . password_store#setting('pw_length') )
@@ -38,5 +27,3 @@ function! password_store#get_highight(group, key) abort
     let l:key = matchstr(l:hl_line, a:key . '=\zs\S*')
     return l:key
 endfunction
-
-let &cpoptions = s:save_cpo
