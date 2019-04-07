@@ -3,7 +3,7 @@ if exists('did_pass_ftplugin') || &compatible  || v:version < 700
 endif
 let g:did_pass = 'did_pass_ftplugin'
 let s:save_cpo = &cpoptions
-set compatible&vim
+set cpoptions&vim
 
 nmap <buffer> <Plug>rotate_password :call password_store#replace()<Cr>
 if ! hasmapto( '\<Plug>rotate_password', 'n')
